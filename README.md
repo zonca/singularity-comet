@@ -14,7 +14,7 @@ First of all we need to build a container on a machine where we have `root` acce
 * Install `singularity`, see <http://singularity.lbl.gov/>
 * Create an image of potentially 4GB:
 
-        sudo singularity create -s 4096 create /tmp/Centos7.img
+        sudo singularity create -s 4096 /tmp/Centos7.img
 
 * Clone this repository and `cd` into the folder
 * Bootstrap the image with the CentOS 7 OS and also install MPI support with `mvapich2` version 2.1, the same currently available on Comet. See `centos.def` in this repository for details (it is going to take some time):
