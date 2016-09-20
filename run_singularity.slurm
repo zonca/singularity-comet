@@ -9,8 +9,6 @@
 
 module load singularity mvapich2_ib/2.1
 
-source /home/zonca/.bashrc
+IMAGE=/oasis/scratch/comet/$USER/temp_project/Centos7.img
 
-IMAGE=/oasis/scratch/comet/zonca/temp_project/Centos7_mva21.img
-
-ibrun -v singularity exec $IMAGE /usr/bin/mpi_hello
+ibrun -v singularity exec $IMAGE /usr/bin/hellow
