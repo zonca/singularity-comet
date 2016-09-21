@@ -1,0 +1,163 @@
+IBRUN: Command is singularity
+IBRUN: Command is /opt/singularity/bin/singularity
+IBRUN: no hostfile mod needed
+IBRUN: Nodefile is /tmp/XimNNqo_xV
+
+IBRUN: MPI binding policy: compact/core for 1 threads per rank (12 cores per socket)
+IBRUN: Adding MV2_USE_OLD_BCAST=1 to the environment
+IBRUN: Adding MV2_CPU_BINDING_LEVEL=core to the environment
+IBRUN: Adding MV2_ENABLE_AFFINITY=1 to the environment
+IBRUN: Adding MV2_DEFAULT_TIME_OUT=23 to the environment
+IBRUN: Adding MV2_CPU_BINDING_POLICY=bunch to the environment
+IBRUN: Adding MV2_USE_HUGEPAGES=0 to the environment
+IBRUN: Adding MV2_HOMOGENEOUS_CLUSTER=0 to the environment
+IBRUN: Adding MV2_USE_UD_HYBRID=0 to the environment
+IBRUN: Added 8 new environment variables to the execution environment
+IBRUN: Command string is [mpirun_rsh -np 48 -hostfile /tmp/XimNNqo_xV -export /opt/singularity/bin/singularity exec /oasis/scratch/comet/zonca/temp_project/Centos7.img /usr/bin/hellow]
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+WARNING: Non existant 'bind point' in container: '/projects'
+WARNING: Non existant 'bind point' in container: '/oasis'
+Hello world from process 20 of 48
+Hello world from process 15 of 48
+Hello world from process 12 of 48
+Hello world from process 7 of 48
+Hello world from process 19 of 48
+Hello world from process 8 of 48
+Hello world from process 23 of 48
+Hello world from process 0 of 48
+Hello world from process 3 of 48
+Hello world from process 9 of 48
+Hello world from process 4 of 48
+Hello world from process 22 of 48
+Hello world from process 2 of 48
+Hello world from process 18 of 48
+Hello world from process 6 of 48
+Hello world from process 5 of 48
+Hello world from process 1 of 48
+Hello world from process 17 of 48
+Hello world from process 16 of 48
+Hello world from process 14 of 48
+Hello world from process 21 of 48
+Hello world from process 11 of 48
+Hello world from process 10 of 48
+Hello world from process 13 of 48
+Hello world from process 41 of 48
+Hello world from process 47 of 48
+Hello world from process 36 of 48
+Hello world from process 42 of 48
+Hello world from process 33 of 48
+Hello world from process 30 of 48
+Hello world from process 45 of 48
+Hello world from process 35 of 48
+Hello world from process 43 of 48
+Hello world from process 28 of 48
+Hello world from process 39 of 48
+Hello world from process 26 of 48
+Hello world from process 29 of 48
+Hello world from process 46 of 48
+Hello world from process 44 of 48
+Hello world from process 25 of 48
+Hello world from process 24 of 48
+Hello world from process 32 of 48
+Hello world from process 37 of 48
+Hello world from process 27 of 48
+Hello world from process 38 of 48
+Hello world from process 31 of 48
+Hello world from process 34 of 48
+Hello world from process 40 of 48
+ERROR  : Could not clear loop device /dev/loop0: (16) Device or resource busy
+ERROR  : Could not clear loop device /dev/loop0: (16) Device or resource busy
+IBRUN: Job ended with value 0
