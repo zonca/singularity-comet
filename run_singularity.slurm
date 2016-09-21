@@ -1,11 +1,11 @@
-#!/bin/bash  
-#SBATCH --job-name="singularity"  
-#SBATCH --output="singularity.%j.%N.out"  
-#SBATCH --partition=compute  
-#SBATCH --nodes=2  
-#SBATCH --ntasks-per-node=24  
-#SBATCH --export=ALL  
-#SBATCH -t 00:05:00  
+#!/bin/bash
+#SBATCH --job-name="singularity"
+#SBATCH --output="singularity.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=24
+#SBATCH --export=ALL
+#SBATCH -t 00:05:00
 
 module load singularity mvapich2_ib/2.1
 
