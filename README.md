@@ -7,7 +7,7 @@ Comet at the San Diego Supercomputer Center is a Supercomputer funded by Nationa
 
 In [this repository](https://github.com/zonca/singularity-comet) I gathered some information on how to run Singularity on Comet computing nodes.
 
-## Build a container
+## Build a CentOS 7 container
 
 First of all we need to build a container on a machine where we have `root` access, cannot do this on Comet.
 
@@ -24,6 +24,10 @@ First of all we need to build a container on a machine where we have `root` acce
 * Test MPI inside the container
 
         singularity exec mpirun -np 2 /usr/bin/hellow
+
+## Build a Ubuntu 16.04 container
+
+Same procedure of CentOS, use `ubuntu.def` instead of `centos.def`.
 
 ## Test the container on Comet
 
