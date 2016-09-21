@@ -1,0 +1,28 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+
+BootStrap: redhat
+OSVersion: 7
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+Include: yum
+
+
+%runscript
+    echo "This is what happens when you run the container..."
+
+
+%post
+    echo "Hello from inside the container"
+    yum -y install vim-minimal wget libibverbs-devel librdmacm-devel libibumad-devel libibmad-devel libmlx5 libmlx4
+    yum -y groupinstall "Development Tools"
+    wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.1.tar.gz
+    tar xvf mvapich2-2.1.tar.gz
+    cd mvapich2-2.1
+    ./configure --prefix=/usr/local
+    make -j4
+    make install
+    /usr/local/bin/mpicc examples/hellow.c -o /usr/bin/hellow
