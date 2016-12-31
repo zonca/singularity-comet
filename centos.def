@@ -5,11 +5,10 @@
 # required approvals from the U.S. Dept. of Energy).  All rights reserved.
 
 
-BootStrap: redhat
+BootStrap: yum
 OSVersion: 7
 MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
 Include: yum
-
 
 %runscript
     echo "This is what happens when you run the container..."
@@ -26,3 +25,5 @@ Include: yum
     make -j4
     make install
     /usr/local/bin/mpicc examples/hellow.c -o /usr/bin/hellow
+    # this is needed outherwise there is a permission error by the kernel when we try to run more than 1 MPI process
+    echo 0 | tee /proc/sys/kernel/yama/ptrace_scope

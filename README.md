@@ -7,9 +7,15 @@ Comet at the San Diego Supercomputer Center is a Supercomputer funded by Nationa
 
 In [this repository](https://github.com/zonca/singularity-comet) I gathered some information on how to run Singularity on Comet computing nodes.
 
+## Requirements on the Host
+
+First of all we need to build a container on a machine where we have `root` access, we cannot do this on Comet.
+I tested the following on Ubuntu 16.04.
+
+If are interested in testing MPI locally on the Host, you'll need to install `mvapich2` on the Host machine, you can follow the commands inside `ubuntu.def`.
+
 ## Build a CentOS 7 container
 
-First of all we need to build a container on a machine where we have `root` access, cannot do this on Comet.
 
 * Install `singularity`, see <http://singularity.lbl.gov/>
 * Create an image of potentially 4GB:
@@ -17,17 +23,22 @@ First of all we need to build a container on a machine where we have `root` acce
         sudo singularity create -s 4096 /tmp/Centos7.img
 
 * Clone this repository and `cd` into the folder
+* Singularity on Ubuntu cannot bootstrap Centos, see [the documentation](http://singularity.lbl.gov/building-centos-image), however very conveniently we can initialize the image from Docker with `singularity import`:
+
+        sudo singularity import /tmp/Centos7.img docker://centos:7
+
 * Bootstrap the image with the CentOS 7 OS and also install MPI support with `mvapich2` version 2.1, the same currently available on Comet. See `centos.def` in this repository for details (it is going to take some time):
 
         sudo singularity bootstrap /tmp/Centos7.img centos.def
 
-* Test MPI inside the container
+* If you installed `mvapich2` on the host, you can check that you can execute the hello world command using the Host MPI installation:
 
-        singularity exec mpirun -np 2 /usr/bin/hellow
+        mpirun -np 2 singularity exec /tmp/Centos7.img /usr/bin/hellow
 
 ## Build a Ubuntu 16.04 container
 
-Same procedure of CentOS, use `ubuntu.def` instead of `centos.def`.
+Install the `debootstrap` package into the Host machine.
+Same procedure of CentOS, use `ubuntu.def` instead of `centos.def` and skip the `singularity import` command.
 
 ## Test the container on Comet
 
