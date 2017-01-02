@@ -11,4 +11,4 @@ module load singularity/2.2 mvapich2_ib/2.1
 
 IMAGE=/oasis/scratch/comet/$USER/temp_project/Centos7.img
 
-ibrun -v singularity exec $IMAGE /usr/bin/hellow
+mpirun singularity exec $IMAGE /usr/bin/hellow
