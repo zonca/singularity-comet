@@ -1,0 +1,45 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: jessie
+MirrorURL: http://ftp.us.debian.org/debian/
+
+
+%runscript
+    echo "This is what happens when you run the container..."
+
+
+%post
+    echo "fix previous runs apt issues"
+	dpkg --configure -a
+	apt -f install --yes
+    echo "starting containter configuration"
+    apt update
+    echo "install MVAPICH 2.1""
+    pt -y --allow-unauthenticated install vim build-essential wget gfortran bison libibverbs-dev libibmad-dev libibumad-dev librdmacm-dev libmlx5-dev libmlx4-dev apt-utils
+    wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.1.tar.gz
+    tar xvf mvapich2-2.1.tar.gz
+    cd mvapich2-2.1
+    ./configure --prefix=/usr/local
+    make -j4
+    make install
+    /usr/local/bin/mpicc examples/hellow.c -o /usr/bin/hellow
+	# put julia in path
+    echo "configure Julia"
+	echo 'export PATH="/usr/local/julia/bin:$PATH"' >> /etc/profile
+	# julia presequisites
+	apt -y --allow-unauthenticated install hdf5-tools sudo cmake
+	# julia packages
+    /usr/local/julia/bin/julia -e 'Pkg.add("Gadfly")' && /usr/local/julia/bin/julia -e 'Pkg.add("RDatasets")' && /usr/local/julia/bin/julia --startup-file=yes -e 'Pkg.add("HDF5")' && /usr/local/julia/bin/julia -e 'Pkg.add("MPI")'
+    /usr/local/julia/bin/julia -e 'Pkg.build("MPI")'
+	# precompile julia packages
+	/usr/local/julia/bin/julia -e 'using MPI' && /usr/local/julia/bin/julia -e 'using Gadfly' && /usr/local/julia/bin/julia -e 'using RDatasets'&& /usr/local/julia/bin/julia -e 'using HDF5'
+	#atom
+    echo "install atom"
+ 	apt install -y --allow-unauthenticated git gconf2 gconf-service libgtk2.0-0 libnotify4 libxtst6 libnss3 python gvfs-bin xdg-utils
+	wget https://atom.io/download/deb
+    dpkg -i deb
