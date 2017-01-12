@@ -31,6 +31,11 @@ MirrorURL: http://ftp.us.debian.org/debian/
 	# put julia in path
     echo "configure Julia"
 	echo 'export PATH="/usr/local/julia/bin:$PATH"' >> /etc/profile
+	# julia path, see https://groups.google.com/forum/#!topic/julia-users/9lQZJlLs99M
+	# from LOAD_PATH in the julia terminal we find out the location of global packages
+	# then we set JULIA_PKGDIR to that folder so we install globally
+	# users then should keep JULIA_PKGDIR default to their home folder
+	export JULIA_PKGDIR='/usr/local/julia/local/share/julia/site/'
 	# julia presequisites
 	apt -y --allow-unauthenticated install hdf5-tools sudo cmake
 	# julia packages
