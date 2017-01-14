@@ -7,6 +7,8 @@ Comet at the San Diego Supercomputer Center is a Supercomputer funded by Nationa
 
 In [this repository](https://github.com/zonca/singularity-comet) I gathered some information on how to run Singularity on Comet computing nodes.
 
+See an introduction to this tutorial on my blog: <https://zonca.github.io/2017/01/singularity-hpc-comet.html>
+
 ## Requirements on the Host
 
 First of all we need to build a container on a machine where we have `root` access, we cannot do this on Comet.
