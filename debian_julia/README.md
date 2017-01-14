@@ -1,6 +1,12 @@
 Build Debian/Julia container with MPI support for Comet
 =============================================
 
+## Prebuilt image
+
+You can also test the container I have already built, it is available on Comet at:
+
+    /oasis/scratch/comet/zonca/temp_project/julia.img
+    
 ## Create image on your laptop
 
 Choose a location:
