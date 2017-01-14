@@ -16,6 +16,9 @@ If are interested in testing MPI locally on the Host, you'll need to install `mv
 
 ## Build a CentOS 7 container
 
+You can also test the container I have already built, it is available on Comet at:
+
+    /oasis/scratch/comet/zonca/temp_project/Centos7.img
 
 * Install `singularity`, see <http://singularity.lbl.gov/>
 * Create an image of potentially 4GB:
@@ -36,6 +39,10 @@ If are interested in testing MPI locally on the Host, you'll need to install `mv
         mpirun -np 2 singularity exec /tmp/Centos7.img /usr/bin/hellow
 
 ## Build a Ubuntu 16.04 container
+
+You can also test the container I have already built, it is available on Comet at:
+
+    /oasis/scratch/comet/zonca/temp_project/Ubuntu.img
 
 Install the `debootstrap` package into the Host machine.
 Same procedure of CentOS, use `ubuntu.def` instead of `centos.def` and skip the `singularity import` command.
