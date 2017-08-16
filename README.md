@@ -18,19 +18,14 @@ If are interested in testing MPI locally on the Host, you'll need to install `mv
 
 ## Build a CentOS 7 container
 
-You can also test the container I have already built, it is available on Comet at:
-
-    /oasis/scratch/comet/zonca/temp_project/Centos7.img
-
+   
 * Install `singularity`, see <http://singularity.lbl.gov/>
 * Create an image of potentially 4GB:
 
         sudo singularity create -s 4096 /tmp/Centos7.img
 
 * Clone this repository and `cd` into the folder
-* Singularity on Ubuntu cannot bootstrap Centos, see [the documentation](http://singularity.lbl.gov/building-centos-image), however very conveniently we can initialize the image from Docker with `singularity import`:
-
-        sudo singularity import /tmp/Centos7.img docker://centos:7
+* Install `yum` to your host machine
 
 * Bootstrap the image with the CentOS 7 OS and also install MPI support with `mvapich2` version 2.1, the same currently available on Comet. See `centos.def` in this repository for details (it is going to take some time):
 
@@ -48,6 +43,10 @@ You can also test the container I have already built, it is available on Comet a
 
 Install the `debootstrap` package into the Host machine.
 Same procedure of CentOS, use `ubuntu.def` instead of `centos.def` and skip the `singularity import` command.
+
+## Containers with Anaconda
+
+See also the `centos_anaconda_jupyterhub.def` and `ubuntu_anaconda_jupyterhub.def` for containers with Anaconda 4.4.0 preinstalled under `/opt/conda`.
 
 ## Test the container on Comet
 
