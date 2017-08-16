@@ -1,0 +1,42 @@
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+
+
+%runscript
+    echo "This is what happens when you run the container..."
+
+%environment
+    LANG=C.UTF-8
+    LC_ALL=C.UTF-8
+
+%post
+    echo "Hello from inside the container"
+    sed -i 's/$/ universe/' /etc/apt/sources.list
+    apt update
+    apt -y --allow-unauthenticated install vim build-essential wget gfortran bison libibverbs-dev libibmad-dev libibumad-dev librdmacm-dev libmlx5-dev libmlx4-dev graphviz libgsl2 libgsl-dev
+    ln -s /usr/lib/x86_64-linux-gnu /usr/lib64
+    wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.1.tar.gz
+    tar xvf mvapich2-2.1.tar.gz
+    cd mvapich2-2.1
+    ./configure --prefix=/usr/local
+    make -j4
+    make install
+    /usr/local/bin/mpicc examples/hellow.c -o /usr/bin/hellow
+    echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
+    echo 'export XDG_RUNTIME_DIR=""' > /etc/profile.d/conda.sh && \
+    wget --quiet https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh -O ~/anaconda.sh && \
+    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
+    rm ~/anaconda.sh
+    /opt/conda/bin/conda install --yes dask distributed jupyterhub jupyterlab -c conda-forge
+    /opt/conda/bin/conda update --yes numba pandas h5py
+    yes | /opt/conda/bin/pip install graphviz
+
+    # mount point for Comet
+    mkdir /oasis
