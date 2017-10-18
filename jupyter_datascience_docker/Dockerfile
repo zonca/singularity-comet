@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:01c9e6c66b15391a71b8aa70f68f01fcf09c7ebd
+FROM jupyter/datascience-notebook:281505737f8a
 
 ARG JUPYTERHUB_VERSION=0.7.2
 
