@@ -1,6 +1,8 @@
 Run singularity containers on SDSC Comet with MPI support
 =========================================================
 
+[![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/1309)
+
 [Singularity](http://singularity.lbl.gov/) is a project by Lawrence Berkeley Labs to bring container technology like Docker to High Performance Computing.
 
 Comet at the San Diego Supercomputer Center is a Supercomputer funded by National Science Foundation that focuses on boosting computing resources of new HPC users.
@@ -9,20 +11,34 @@ In [this repository](https://github.com/zonca/singularity-comet) I gathered some
 
 See an introduction to this tutorial on my blog: <https://zonca.github.io/2017/01/singularity-hpc-comet.html>
 
-## Requirements on the Host
+## Use a pre-made Singularity container
+
+Available on Comet at:
+
+    /oasis/scratch/comet/zonca/temp_project/ubuntu_anaconda_2018.simg
+
+Available on DockerHub, see the `Dockerfile` in `jupyter_datascience_docker/`, see <https://hub.docker.com/r/zonca/jupyter-datascience-comet/>, you can transform it into a singularity container directly on Comet with:
+
+    module load singularity
+    singularity pull docker://zonca/jupyter-datascience-comet
+
+Available on SingularityHub at <https://www.singularity-hub.org/collections/1309>:
+
+    module load singularity
+    singularity pull shub://zonca/singularity-comet
+
+## Build a Ubuntu 16.04 container
+
+### Requirements on the Host
 
 First of all we need to build a container on a machine where we have `root` access, we cannot do this on Comet.
 I tested the following on Ubuntu 16.04.
 
 If are interested in testing MPI locally on the Host, you'll need to install `mvapich2` on the Host machine, you can follow the commands inside `ubuntu.def`.
 
-## Build a Ubuntu 16.04 container
+### How to build the container with singularity
 
 Currently the kernel on Comet does not support Ubuntu 18.04.
-
-You can also test the container I have already built, it is available on Comet at:
-
-    /oasis/scratch/comet/zonca/temp_project/ubuntu_anaconda_2018.simg
 
 Install the `debootstrap` package into the Host machine.
 
