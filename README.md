@@ -16,43 +16,37 @@ I tested the following on Ubuntu 16.04.
 
 If are interested in testing MPI locally on the Host, you'll need to install `mvapich2` on the Host machine, you can follow the commands inside `ubuntu.def`.
 
-## Build a CentOS 7 container
-
-   
-* Install `singularity`, see <http://singularity.lbl.gov/>
-* Create an image of potentially 4GB:
-
-        sudo singularity create -s 4096 /tmp/Centos7.img
-
-* Clone this repository and `cd` into the folder
-* Install `yum` to your host machine
-
-* Bootstrap the image with the CentOS 7 OS and also install MPI support with `mvapich2` version 2.1, the same currently available on Comet. See `centos.def` in this repository for details (it is going to take some time):
-
-        sudo singularity bootstrap /tmp/Centos7.img centos.def
-
-* If you installed `mvapich2` on the host, you can check that you can execute the hello world command using the Host MPI installation:
-
-        mpirun -np 2 singularity exec /tmp/Centos7.img /usr/bin/hellow
-
 ## Build a Ubuntu 16.04 container
+
+Currently the kernel on Comet does not support Ubuntu 18.04.
 
 You can also test the container I have already built, it is available on Comet at:
 
-    /oasis/scratch/comet/zonca/temp_project/Ubuntu.img
+    /oasis/scratch/comet/zonca/temp_project/ubuntu_anaconda_2018.simg
 
 Install the `debootstrap` package into the Host machine.
-Same procedure of CentOS, use `ubuntu.def` instead of `centos.def` and skip the `singularity import` command.
 
-## Containers with Anaconda
+* Install `singularity`, see <http://singularity.lbl.gov/>
+* Create an image of potentially 4GB:
 
-See also the `centos_anaconda_jupyterhub.def` and `ubuntu_anaconda_jupyterhub.def` for containers with Anaconda 4.4.0 preinstalled under `/opt/conda`.
+        export IMAGE=/tmp/ubuntu_anaconda_2018.simg
+        sudo singularity create -s 4096 $IMAGE
+
+* Clone this repository and `cd` into the folder
+
+* Bootstrap the image with the Ubuntu 16.04 OS and also install MPI support with `mvapich2` version 2.1, the same currently available on Comet. See `ubuntu_anaconda/Singularity` in this repository for details (it is going to take some time):
+
+        sudo singularity build $IMAGE ubuntu_anaconda
+
+* If you installed `mvapich2` on the host, you can check that you can execute the hello world command using the Host MPI installation:
+
+        mpirun -np 2 singularity exec $IMAGE /usr/bin/hellow
 
 ## Test the container on Comet
 
 * Copy the container on your `scratch` folder:
 
-        scp /tmp/Centos7.img comet.sdsc.edu:/oasis/scratch/comet/$USER/temp_project/
+        scp $IMAGE comet.sdsc.edu:/oasis/scratch/comet/$USER/temp_project/
 
 * SSH to Comet
 * Clone this repository and `cd` into the folder
