@@ -9,7 +9,12 @@
 
 module load singularity mvapich2_ib/2.1
 
-IMAGE=/oasis/scratch/comet/zonca/temp_project/jupyter-datascience-comet.simg
+# Image imported from Docker, has Python, R, Julia
+# IMAGE=/oasis/scratch/comet/zonca/temp_project/jupyter-datascience-comet.simg
+# Image built in Singularity, has Python only
+IMAGE=/oasis/scratch/comet/zonca/temp_project/ubuntu_anaconda_2018.simg
+
+# Both images support MPI
 
 #Generate a hostfile from the slurm node list
 export PBS_NODEFILE=`generate_pbs_nodefile`
