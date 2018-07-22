@@ -10,7 +10,7 @@
 
 module load singularity/2.2 mvapich2_ib/2.1
 
-IMAGE=/oasis/scratch/comet/$USER/temp_project/debian_julia.img
+IMAGE=/oasis/scratch/comet/$USER/temp_project/julia.img
 
 mpirun singularity exec $IMAGE /usr/bin/hellow
 mpirun singularity exec $IMAGE /usr/local/julia/bin/julia 01-hello.jl
