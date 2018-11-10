@@ -30,10 +30,10 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     /usr/local/bin/mpicc examples/hellow.c -o /usr/bin/hellow
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     echo 'export XDG_RUNTIME_DIR=""' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.continuum.io/archive/Anaconda3-5.2.0-Linux-x86_64.sh -O ~/anaconda.sh && \
+    wget --quiet https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
-    /opt/conda/bin/conda install --yes dask distributed -c conda-forge
+    /opt/conda/bin/conda install --yes dask distributed jupyterhub -c conda-forge
     /opt/conda/bin/conda update --yes numba pandas h5py
     /opt/conda/bin/conda clean --yes --all
     yes | /opt/conda/bin/pip install graphviz
