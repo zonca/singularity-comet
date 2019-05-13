@@ -38,5 +38,5 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     /opt/conda/bin/conda clean --yes --all
     yes | /opt/conda/bin/pip install graphviz
 
-    # mount point for Comet
-    mkdir /oasis
+    # mount points for Comet
+    mkdir /oasis /scratch /projects
