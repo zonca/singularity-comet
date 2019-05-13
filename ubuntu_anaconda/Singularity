@@ -40,3 +40,4 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
     # mount points for Comet
     mkdir /oasis /scratch /projects
+    mkdir /usr/lib64/slurm /var/run/munge
