@@ -20,7 +20,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     echo "Hello from inside the container"
     sed -i 's/$/ universe/' /etc/apt/sources.list
     apt update
-    apt -y --allow-unauthenticated install vim build-essential wget gfortran bison libibverbs-dev libibmad-dev libibumad-dev librdmacm-dev libmlx5-dev libmlx4-dev graphviz
+    apt -y --allow-unauthenticated install slurm-client vim build-essential wget gfortran bison libibverbs-dev libibmad-dev libibumad-dev librdmacm-dev libmlx5-dev libmlx4-dev graphviz
     wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.1.tar.gz
     tar xvf mvapich2-2.1.tar.gz
     cd mvapich2-2.1
