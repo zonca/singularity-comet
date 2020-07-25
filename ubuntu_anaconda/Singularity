@@ -21,25 +21,19 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     sed -i 's/$/ universe/' /etc/apt/sources.list
     apt update
     apt -y --allow-unauthenticated install vim build-essential wget gfortran bison libibverbs-dev libibmad-dev libibumad-dev librdmacm-dev libmlx5-dev libmlx4-dev graphviz
-    wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.1.tar.gz
-    tar xvf mvapich2-2.1.tar.gz
-    cd mvapich2-2.1
-    ./configure --prefix=/usr/local
-    make -j4
-    make install
-    /usr/local/bin/mpicc examples/hellow.c -o /usr/bin/hellow
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     echo 'export XDG_RUNTIME_DIR=""' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh -O ~/anaconda.sh && \
+    #wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh -O ~/anaconda.sh && \
+    wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
-    /opt/conda/bin/conda install --yes dask distributed dask-jobqueue jupyterhub keras -c conda-forge
+    /opt/conda/bin/conda install --yes dask distributed dask-jobqueue jupyterhub keras zarr scikit-learn dask-labextension -c conda-forge
     /opt/conda/bin/conda update --yes numba pandas h5py
     /opt/conda/bin/conda clean --yes --all
     # install SLURM (needs python)
-    source /etc/profile.d/conda.sh
+    . /etc/profile.d/conda.sh
     wget https://github.com/SchedMD/slurm/archive/slurm-14-11-11-1.tar.gz && \
-    tar xf slurm-14-11-11-1.tar.gz && cd slurm* && ./configure && make -j8 install && rm ~/*.tar.gz
+    tar xf slurm-14-11-11-1.tar.gz && cd slurm-slurm* && ./configure && make -j8 install && rm ~/*.tar.gz
     yes | /opt/conda/bin/pip install graphviz
 
     # mount points for Comet
