@@ -33,7 +33,6 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     jupyter labextension install @bokeh/jupyter_bokeh
     /opt/conda/bin/conda clean --yes --all
     # install SLURM (needs python)
-    . /etc/profile.d/conda.sh
     wget https://github.com/SchedMD/slurm/archive/slurm-14-11-11-1.tar.gz && \
     tar xf slurm-14-11-11-1.tar.gz && cd slurm-slurm* && ./configure && make -j8 install && rm ~/*.tar.gz
     yes | /opt/conda/bin/pip install graphviz
