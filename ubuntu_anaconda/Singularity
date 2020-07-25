@@ -27,8 +27,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
-    /opt/conda/bin/conda install --yes dask distributed dask-jobqueue jupyterhub keras zarr scikit-learn dask-labextension -c conda-forge
-    /opt/conda/bin/conda update --yes numba pandas h5py
+    /opt/conda/bin/conda install --yes numba pandas h5py dask distributed dask-jobqueue jupyterhub keras zarr scikit-learn dask-labextension -c conda-forge
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install @bokeh/jupyter_bokeh
     /opt/conda/bin/conda clean --yes --all
